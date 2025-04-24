@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonCol, IonContent, IonFooter, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonModal, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonCol, IonContent, IonFooter, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonModal, IonPage, IonRow, IonSearchbar, IonSelect, IonSelectOption, IonTitle, IonToolbar } from '@ionic/react';
 import './page.css';
 import { add, arrowForwardCircleOutline, arrowRedoOutline, key, locateOutline, locationSharp, remove, searchOutline, sparklesSharp, trashOutline } from 'ionicons/icons';
 import Calendar from 'react-calendar';
@@ -19,6 +19,8 @@ type MenuItem = {
 
 const YachtBooking: React.FC = () => {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
+    const [isOpenAssistant, setIsOpenAssistant] = useState(false);
+
 
     const menu = [
         {
@@ -64,10 +66,69 @@ const YachtBooking: React.FC = () => {
 
         },
         {
-            id: 7, 
+            id: 7,
             name: "Trái cây tươi mát fgsd",
             content: "Cơm chiên dương châu hải sản tôm Cơm chiên dương châu",
             image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSymLAQV-vretS_sqeJndN9p9L9nXHCPFCKhw&s",
+
+        }
+    ]
+
+    const assistant = [
+        {
+            id: 1,
+            name: "Trợ lí Marry",
+            age: 25,
+            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
+            describe: "Là một cô trợ lí với 3 năm kinh nghiệp"
+
+        },
+        {
+            id: 1,
+            name: "Trợ lí Marry",
+            age: 25,
+            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
+            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
+
+        },
+        {
+            id: 1,
+            name: "Trợ lí Marry",
+            age: 25,
+            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
+            describe: "Là một cô trợ lí với 3 năm kinh nghiệp"
+
+        },
+        {
+            id: 1,
+            name: "Trợ lí Marry",
+            age: 25,
+            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
+            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
+
+        },
+        {
+            id: 1,
+            name: "Trợ lí Marry",
+            age: 25,
+            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
+            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
+
+        },
+        {
+            id: 1,
+            name: "Trợ lí Marry",
+            age: 25,
+            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
+            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
+
+        },
+        {
+            id: 1,
+            name: "Trợ lí Marry",
+            age: 25,
+            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
+            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
 
         }
     ]
@@ -134,6 +195,14 @@ const YachtBooking: React.FC = () => {
 
     }
 
+    const [selectAssistant, setSelectAssistant] = useState<{
+        id: number;
+        name: string;
+        age: number;
+        avatar: string;
+        describe: string;
+    } | undefined>(undefined);
+
 
     return (
         <IonPage>
@@ -187,9 +256,26 @@ const YachtBooking: React.FC = () => {
                                     <IonIcon className='me-2 text-pink' icon={sparklesSharp} style={{ width: "20px", height: "20px" }}></IonIcon>
                                     Du thuyện hạn sang với không gian cổ tích
                                 </IonRow>
+                                <IonRow className='text-pink fs-13 fw-bold mt-3'>Địa điểm</IonRow>
+                                <IonRow className='mt-1'>
+                                    <input type='text' className='p-2 rounded-3 fs-13 border border-1 w-100' placeholder='Nhập địa điểm'></input>
+                                </IonRow>
+                                <IonRow className='text-pink fs-13 fw-bold mt-3'>Thời gian</IonRow>
+                                <IonRow className='mt-1'>
+                                    <input type='datetime-local' className='p-2 rounded-3 fs-13 border border-1 w-100'></input>
+                                </IonRow>
+                                <IonRow className='text-pink fs-13 fw-bold mt-3'>Họ và tên</IonRow>
+                                <IonRow className='mt-1'>
+                                    <input type='text' className='p-2 rounded-3 fs-13 border border-1 w-100' placeholder='Họ và tên'></input>
+                                </IonRow>
+                                <IonRow className='text-pink fs-13 fw-bold mt-3'>Số điện thoại</IonRow>
+                                <IonRow className='mt-1'>
+                                    <input type='tel' className='p-2 rounded-3 fs-13 border border-1 w-100' placeholder='Số điện thoại'></input>
+                                </IonRow>
+
                                 <IonRow className='d-flex justify-content-between mt-3 align-items-center'>
-                                    <div className='text-pink fs-15 fw-bold'>Chọn Menu</div>
-                                    <button className='book-btn fs-13' onClick={() => setIsOpenMenu(true)}>Chọn</button>
+                                    <div className='text-pink fs-13 fw-bold'>Chọn Menu</div>
+                                    <button className='book-btn fs-13 p-2' onClick={() => setIsOpenMenu(true)}>Chọn</button>
                                 </IonRow>
                                 {selectFood && selectFood.length > 0 ? selectFood.map((food, key) => {
                                     return (
@@ -215,23 +301,35 @@ const YachtBooking: React.FC = () => {
                                         Hãy chọn món ăn để cuộc hẹn của bạn ấm no nhé!
                                     </IonRow>
                                 }
-
-
-
                                 <IonRow className='d-flex justify-content-between align-items-center mt-3'>
-                                    <div className='text-pink fs-15 fw-bold'>Chọn Trợ lí</div>
-                                    <button className='book-btn fs-13'>Chọn</button>
+                                    <div className='text-pink fs-13 fw-bold'>Chọn Trợ lí</div>
+                                    <button className='book-btn fs-13 p-2' onClick={() => setIsOpenAssistant(true)}>Chọn</button>
+                                </IonRow>
+                                {selectAssistant ?
+                                    <IonRow className='border-bottom mt-2'>
+                                        <IonCol size='2'>
+                                            <img src={`${selectAssistant.avatar}`} className='rounded-3'></img>
+                                        </IonCol>
+                                        <IonCol size='10'>
+                                            <div className='text-pink fs-13'>{selectAssistant.name}</div>
+                                            <div className='text-secondary fs-13'>{selectAssistant.describe}</div>
+                                            <div className='d-flex justify-content-end mt-2'>
+                                                <button onClick={() => { setSelectAssistant(undefined); localStorage.removeItem("selectAssistant") }} className='bg-danger fs-11 p-1 text-white rounded-3 d-flex align-items-center'><IonIcon icon={trashOutline} className='me-1'></IonIcon> Xóa</button>
+
+                                            </div>
+                                        </IonCol>
+                                    </IonRow>
+                                    :
+                                    <IonRow className='border-bottom pb-3 mt-2 fs-13 d-flex justify-content-center'>
+                                        Hãy chọn trợ lí để giúp đỡ bạn nhé!
+                                    </IonRow>
+                                }
+
+                                <IonRow className='text-pink fs-13 fw-bold mt-3'>Ghi chú</IonRow>
+                                <IonRow className='mt-1'>
+                                    <textarea rows={5} className='p-2 rounded-3 fs-13 border border-1 w-100' placeholder='Ghi chú'></textarea>
                                 </IonRow>
 
-                                <IonRow className='border-bottom mt-2'>
-                                    <IonCol size='2'>
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s" className='rounded-3'></img>
-                                    </IonCol>
-                                    <IonCol size='10'>
-                                        <div className='text-pink fs-13'>Trợ lí Mary</div>
-                                        <div className='text-secondary fs-13'>Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm</div>
-                                    </IonCol>
-                                </IonRow>
                                 <IonRow className='py-4 w-100 d-flex justify-content-center'>
                                     <button className='book-btn fs-15 p-3 w-75'>Booking </button>
                                 </IonRow>
@@ -261,10 +359,20 @@ const YachtBooking: React.FC = () => {
                     </IonToolbar>
                 </IonHeader>
                 <IonContent className="ion-padding">
-                    <IonRow className='px-3'>
-                        <input className='rounded-3 p-2 fs-13 w-100 border border-1' placeholder='search'></input>
-                    </IonRow>
+                    <IonRow className=' d-flex align-items-center'>
+                        <IonCol size='5'>
+                            <select className='w-100 fs-13 p-2 border border-1 rounded-3 bg-light' >
+                                <option value={1}>Quận 1</option>
+                                <option value={2}>Quận 2</option>
+                            </select>
+                        </IonCol>
+                        <IonCol size='7'>
+                            <input className='rounded-3 p-2 fs-13 w-100 border border-1 bg-light' placeholder='search'></input>
 
+                        </IonCol>
+
+                    </IonRow>
+                    <IonSearchbar showClearButton="always" placeholder="search" className='fs-13 w-100 p-0'></IonSearchbar>
                     <IonRow className='mt-2'>
                         {menuWithQty && menuWithQty.map((food, key) => {
                             return (
@@ -301,6 +409,64 @@ const YachtBooking: React.FC = () => {
                             )
                         })}
                     </IonRow>
+
+                </IonContent>
+                <IonFooter>
+                    <IonRow className='d-flex justify-content-center my-3 mt-2'>
+                        <button className='book-btn fs-15 p-3 w-75' onClick={() => { setIsOpenMenu(false) }}>Đặt {selectFood.length > 0 && selectFood.length} món </button>
+                    </IonRow>
+                </IonFooter>
+            </IonModal>
+
+            <IonModal
+                id="example-modal-menu"
+                isOpen={isOpenAssistant}
+                backdropDismiss={false}
+                initialBreakpoint={1}
+                breakpoints={[0.3, 0.5, 1]}
+                className='custom-modal'
+            >
+                <IonHeader>
+                    <IonToolbar>
+                        <IonTitle className='fs-15'>Chọn món ăn</IonTitle>
+                        <IonButtons slot="end">
+                            <IonButton onClick={() => { setIsOpenAssistant(false) }}>Close</IonButton>
+                        </IonButtons>
+                    </IonToolbar>
+                </IonHeader>
+                <IonContent className="ion-padding">
+                    <IonRow className='px-3'>
+                        <input className='rounded-3 p-2 fs-13 w-100 border border-1' placeholder='search'></input>
+                    </IonRow>
+
+                    <Swiper
+                        effect={'cards'}
+                        grabCursor={true}
+                        modules={[EffectCards]}
+                        className="mySwiper mt-3"
+                        style={{ marginLeft: "8%" }}
+                    >
+                        {assistant.map((assistant, index) => (
+                            <SwiperSlide key={index} >
+                                <div className="card-container ">
+                                    <img src={assistant.avatar} className=" border border-3 border-secondary w-50 rounded-circle" style={{ margin: "0 auto" }} />
+                                    <div className='fs-15'>{assistant.name}</div>
+                                    <p className="description fs-13">{assistant.describe}</p>
+                                    <div className="status">
+                                        <span className="available">Available</span>
+                                        <div className="circle green" />
+                                        <span className="busy">Busy</span>
+                                        <div className="circle pink" />
+                                    </div>
+                                    <button className="book-btn" onClick={() => {
+                                        setSelectAssistant(assistant);
+                                        localStorage.setItem("selectAssistant", JSON.stringify(assistant));
+                                        setIsOpenAssistant(false)
+                                    }}>BOOK ME NOW</button>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
 
                 </IonContent>
                 <IonFooter>

@@ -45,6 +45,7 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import RoomConcept from './pages/RoomConcept';
 
 setupIonicReact();
 
@@ -65,6 +66,9 @@ const App: React.FC = () => (
           </Route>
           <Route path="/yacht-booking">
             <YachtBooking />
+          </Route>
+          <Route path="/room-concept">
+            <RoomConcept />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />

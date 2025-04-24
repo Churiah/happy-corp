@@ -3,6 +3,7 @@ import './page.css';
 import { arrowForwardCircleOutline, arrowRedoOutline } from 'ionicons/icons';
 import Calendar from 'react-calendar';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
 
@@ -27,7 +28,7 @@ const Home: React.FC = () => {
             <IonContent fullscreen >
                 <div className=' backgound-home h-25'>
                     <IonRow className='d-flex justify-content-between align-items-center  p-4 '>
-                        <div className='text-white fw-bold ' style={{fontSize:"20px"}}>Wellcome to Happy Corp</div>
+                        <div className='text-white fw-bold ' style={{ fontSize: "20px" }}>Wellcome to Happy Corp</div>
                         <img src='https://beta.ellm.io/templates/assets/img/logo-small.svg' alt='logo' style={{ width: "40px" }}></img>
 
                     </IonRow>
@@ -75,17 +76,19 @@ const Home: React.FC = () => {
                             <IonCol size='8'>
                                 <div style={{ position: 'relative' }}>
                                     <img src='https://decoxdesign.com/upload/images/indochine-bedroom-01-decox-design.jpg' className='rounded-4'></img>
-                                    <IonCard className='m-0 bg-dark bg-opacity-50 text-dark p-2 pb-3 rounded-4' style={{
-                                        position: 'absolute',
-                                        bottom: '10px',
-                                        left: '6px',
-                                        right: '6px',
-                                    }}>
-                                        <IonRow className='d-flex justify-content-between align-items-center text-white'>
-                                            <IonLabel className='fw-bold'>Concept phòng</IonLabel>
-                                            <IonIcon icon={arrowRedoOutline} color='white'></IonIcon>
-                                        </IonRow>
-                                    </IonCard>
+                                    <Link to="/room-concept">
+                                        <IonCard className='m-0 bg-dark bg-opacity-50 text-dark p-2 pb-3 rounded-4' style={{
+                                            position: 'absolute',
+                                            bottom: '10px',
+                                            left: '6px',
+                                            right: '6px',
+                                        }}>
+                                            <IonRow className='d-flex justify-content-between align-items-center text-white'>
+                                                <IonLabel className='fw-bold'>Concept phòng</IonLabel>
+                                                <IonIcon icon={arrowRedoOutline} color='white'></IonIcon>
+                                            </IonRow>
+                                        </IonCard>
+                                    </Link>
                                 </div>
                             </IonCol>
                             <IonCol size='8' >
