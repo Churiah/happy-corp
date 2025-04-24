@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.backgound-home {
+    background: linear-gradient(to right, #ff0066, #ff6600) !important;
+
+}
+
+.text-pink {
+    color: #ff0066;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+.fs-13 {
+    font-size: 13px;
+}
+
+.fs-11 {
+    font-size: 11px;
+}
+
+.hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.fw-300 {
+    font-weight: bolder;
+}
+
+.calendar-wrapper {
+    /* max-width: 400px; */
+    margin: auto;
+    border-radius: 12px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.react-calendar__tile {
+    outline: 0.5px solid lightgray;
+    position: relative;
+    height: 50px;
+    /* border-radius: 8px; */
+    padding: 10px 0;
+}
+
+.marked-day1 {
+    font-weight: bold;
+    color: #fff;
+    background: #111;
+    border-radius: 12px;
+    outline: 0.5px solid lightgray;
+    margin-top: -1px;
+}
+
+.marked-day2 {
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(to right, #ff416c, #ffbd2f);
+    border-radius: 12px;
+    outline: 0.5px solid lightgray;
+    margin-top: -1px;
+}
+
+
+.note-dot {
+    width: 4px;
+    height: 5px;
+    border-radius: 5%;
+    margin: 1px;
+}
+
+.three-line-block {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* Cắt tối đa 3 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    /* Bắt buộc chiều cao tối thiểu đúng 3 dòng */
+    min-height: calc(1.5em * 3);
+    /* nếu line-height = 1.5 */
+    line-height: 1.5em;
+}
+
+/* styles.css */
+.card-container {
+    background: #1c1c1c;
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+}
+
+/* Các slide bị đè */
+.swiper-slide:not(.swiper-slide-active) .card-container {
+    background-color: rgba(3, 3, 3, 0.623);
+    color: white;
+}
+
+
+.description {
+    min-height: calc(1.5em * 3);
+    line-height: 1.5em;
+    margin-top: 10px;
+}
+
+.status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.green {
+    background-color: #28a745;
+}
+
+.pink {
+    background-color: #ff007f;
+}
+
+.book-btn {
+    background: linear-gradient(to right, #ff2d75, #ffa500);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Xoá shadow mặc định của swiper slide */
+.swiper-slide {
+    box-shadow: none !important;
+}
+
+.swiper-slide-shadow {
+    display: none !important;
+}
+
+.swiper-slide-active {
+    box-shadow: none !important;
+}
+
+ion-modal#example-modal-menu {
+    --height: 90%;
+    --width: 100%;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --border-radius: 32px;
+
+}
+
+ion-modal#example-modal-menu::part(backdrop) {
+    background: #908f8fd1;
+    opacity: 1;
+}
+
+ion-modal#example-modal-menu ion-toolbar {
+    --background: rgb(254, 255, 255);
+    --color: rgb(26, 25, 25);
+}
+
+.custom-modal {
+    --border-radius: 20px;
+    --z-index: 1000;
+    /* Giá trị tuỳ chỉnh */
+}

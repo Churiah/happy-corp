@@ -1,2 +1,6 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+/* src/theme/variables.css */
+/* body, html, ion-content, ion-label, ion-title, * {
+    font-family: 'Poppins', sans-serif !important;
+} */
