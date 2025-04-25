@@ -52,5 +52,21 @@
     "vite": "~5.2.0",
     "vitest": "^0.34.6"
   },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "no-unused-vars": "off"
+    }
+  },
   "description": "An Ionic project"
 }

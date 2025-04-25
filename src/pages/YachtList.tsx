@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/effect-cards';
 import { EffectCards } from 'swiper/modules';
 import { Link } from 'react-router-dom';
-
+import SwiperYacht from '../components/SwiperYacht';
 
 const YachtList: React.FC = () => {
 
@@ -102,89 +102,15 @@ const YachtList: React.FC = () => {
                             <IonRow className='d-flex justify-content-center align-items-center'>
                                 <IonLabel className='text-pink fs-6 fw-bold'>Quận 1</IonLabel>
                             </IonRow>
-                            <Swiper
-                                effect={'cards'}
-                                grabCursor={true}
-                                modules={[EffectCards]}
-                                className="mySwiper mt-3"
-                                style={{ marginLeft: "8%" }}
-                            >
-                                {list.filter((yacht) => yacht.id_address === 1).map((yacht, index) => (
-                                    <SwiperSlide key={index} >
-                                        <div className="card-container ">
-                                            <img src={yacht.avatar} className="rounded-4" />
-                                            <div className='fs-15'>{yacht.name}</div>
-                                            <div className='fs-13 mt-1 text-pink'>{yacht.address}</div>
-                                            <p className="description fs-13">{yacht.describe}</p>
-                                            <div className="status">
-                                                <span className="available">Available</span>
-                                                <div className="circle green" />
-                                                <span className="busy">Busy</span>
-                                                <div className="circle pink" />
-                                            </div>
-                                            <Link to="/yacht-booking"  >
-                                                <button className="book-btn w-100" >BOOK ME NOW</button>
-                                            </Link>
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
+                            <SwiperYacht list={list} address_id={1} />
                             <IonRow className='d-flex justify-content-center align-items-center mt-4'>
                                 <IonLabel className='text-pink fs-6 fw-bold'>Quận 2</IonLabel>
                             </IonRow>
-                            <Swiper
-                                effect={'cards'}
-                                grabCursor={true}
-                                modules={[EffectCards]}
-                                className="mySwiper mt-2"
-                                style={{ marginLeft: "8%" }}
-                            >
-                                {list.filter((yacht) => yacht.id_address === 2).map((yacht, index) => (
-                                    <SwiperSlide key={index} >
-                                        <div className="card-container ">
-                                            <img src={yacht.avatar} className="rounded-4" />
-                                            <div className='fs-15'>{yacht.name}</div>
-                                            <div className='fs-13 mt-1 text-pink'>{yacht.address}</div>
-                                            <p className="description fs-13">{yacht.describe}</p>
-                                            <div className="status">
-                                                <span className="available">Available</span>
-                                                <div className="circle green" />
-                                                <span className="busy">Busy</span>
-                                                <div className="circle pink" />
-                                            </div>
-                                            <button className="book-btn">BOOK ME NOW</button>
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
+                            <SwiperYacht list={list} address_id={2} />
                             <IonRow className='d-flex justify-content-center align-items-center mt-4'>
                                 <IonLabel className='text-pink fs-6 fw-bold'>Quận 9</IonLabel>
                             </IonRow>
-                            <Swiper
-                                effect={'cards'}
-                                grabCursor={true}
-                                modules={[EffectCards]}
-                                className="mySwiper mt-2"
-                                style={{ marginLeft: "8%" }}
-                            >
-                                {list.filter((yacht) => yacht.id_address === 3).map((yacht, index) => (
-                                    <SwiperSlide key={index} >
-                                        <div className="card-container ">
-                                            <img src={yacht.avatar} className="rounded-4" />
-                                            <div className='fs-15'>{yacht.name}</div>
-                                            <div className='fs-13 mt-1 text-pink'>{yacht.address}</div>
-                                            <p className="description fs-13">{yacht.describe}</p>
-                                            <div className="status">
-                                                <span className="available">Available</span>
-                                                <div className="circle green" />
-                                                <span className="busy">Busy</span>
-                                                <div className="circle pink" />
-                                            </div>
-                                            <button className="book-btn">BOOK ME NOW</button>
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
+                            <SwiperYacht list={list} address_id={3} />
 
                         </IonCard>
                     </div>

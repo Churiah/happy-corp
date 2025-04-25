@@ -1,92 +1,59 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
-import './page.css';
-import { arrowForwardCircleOutline, arrowRedoOutline, searchOutline } from 'ionicons/icons';
-import Calendar from 'react-calendar';
-import { useState } from 'react';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/css';
-// import 'swiper/css/effect-cards';
-// import { EffectCards } from 'swiper/modules';
-import SwiperAssistant from '../components/SwiperAssistant';
-
-const AssistantList: React.FC = () => {
-
-    function log() {
-        console.log(123);
-
-    }
-
-    const [value, setValue] = useState(new Date());
-
-    // Ví dụ ghi chú ngày đặc biệt
-    const notes: Record<string, { color: string; text?: string, type: string }> = {
-        '2025-04-06': { color: 'black', type: "1" },
-        '2025-04-21': { color: 'linear-gradient(to right, #ff416c, #ffbd2f)', type: "2" },
-        '2025-04-17': { color: '#007bff', type: "3" },
-    };
-    const formatDateKey = (date: Date) =>
-        date.toISOString().split('T')[0];
-
-
+import { IonCard, IonCol, IonContent, IonIcon, IonLabel, IonList, IonPage, IonRow } from "@ionic/react"
+import SwiperAssistant from "../components/SwiperAssistant"
+import { arrowForwardCircleOutline } from "ionicons/icons"
+import SwiperCar from "../components/SwiperCar"
+const CarList = () => {
     const list = [
         {
             id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí với 3 năm kinh nghiệp"
+            model: "RANGE ROVER SVAUTOBIOGRAPHY",
+            manufacturer: "Land Rover",
+            avatar: "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdPwMFS9kDyj3Iem0ocfgIqZxmPrlRtPsYCJvHcGQirOCozU74barnwks1hSlp6YO3fpBhOqQRov3hNDgh2I7z4tJt-CIB-Qet-CRRoMYVwIFCFJY34dqp9vyK5mlCLzFkYuygFp9BNMQLhAKP6IEryxYCi?key=rpyGZ_9kGx4duDE76p7lHQ",
+            describe: "Động cơ V8 siêu nạp 5.0L công suất có 557 mã lực"
+
+        },
+        {
+            id: 2,
+            model: "BENTLEY FLYING SPUR",
+            manufacturer: "Bentley",
+            avatar: "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfyXoM_EbCu3OwiPHPiKqz_oKxKC4H7ODfQbYR6kcpnnj1APc-gzAaTuMV5ypuwNhe7UNU2HeN-xvKrrloWSwGapYbKZ-l4PZh0t0EEdMsPnf7q1ROs1g71pd7hRbo8ivM9oAssg4t9UEBEkmq5E4DA3LI?key=rpyGZ_9kGx4duDE76p7lHQ",
+            describe: "Động cơ V12 tăng áp kép 6.0L công suất là 626 mã lực và mô-men xoắn 663 lb-ft"
+
+        },
+        {
+            id: 3,
+            model: "MERCEDES MAYBACH S650",
+            manufacturer: "Mercedes",
+            avatar: "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfNJjtntyD6tTbWZk7928WyeyDmVN68B_nk09VEaM3oLrLrYB4hcf2uim0aAWuGOEbO47Laz-L56faNiZ2sg32zz2oIr_j0kv-vjfxfacidKtzDkNsTeiK2525Mom-mNGWo7z6zeEPwjWYSRStkCNa9kfdy?key=rpyGZ_9kGx4duDE76p7lHQ",
+            describe: "Động cơ Biturbo-V12 6.0L chế tạo thủ công, cho công suất là 621 mã lực và mô-men xoắn là 738 lb-ft"
 
         },
         {
             id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
+            model: "RANGE ROVER SVAUTOBIOGRAPHY",
+            manufacturer: "Land Rover",
+            avatar: "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdPwMFS9kDyj3Iem0ocfgIqZxmPrlRtPsYCJvHcGQirOCozU74barnwks1hSlp6YO3fpBhOqQRov3hNDgh2I7z4tJt-CIB-Qet-CRRoMYVwIFCFJY34dqp9vyK5mlCLzFkYuygFp9BNMQLhAKP6IEryxYCi?key=rpyGZ_9kGx4duDE76p7lHQ",
+            describe: "Động cơ V8 siêu nạp 5.0L công suất có 557 mã lực"
 
         },
         {
-            id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí với 3 năm kinh nghiệp"
+            id: 2,
+            model: "BENTLEY FLYING SPUR",
+            manufacturer: "Bentley",
+            avatar: "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfyXoM_EbCu3OwiPHPiKqz_oKxKC4H7ODfQbYR6kcpnnj1APc-gzAaTuMV5ypuwNhe7UNU2HeN-xvKrrloWSwGapYbKZ-l4PZh0t0EEdMsPnf7q1ROs1g71pd7hRbo8ivM9oAssg4t9UEBEkmq5E4DA3LI?key=rpyGZ_9kGx4duDE76p7lHQ",
+            describe: "Động cơ V12 tăng áp kép 6.0L công suất là 626 mã lực và mô-men xoắn 663 lb-ft"
 
         },
         {
-            id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
+            id: 3,
+            model: "MERCEDES MAYBACH S650",
+            manufacturer: "Mercedes",
+            avatar: "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfNJjtntyD6tTbWZk7928WyeyDmVN68B_nk09VEaM3oLrLrYB4hcf2uim0aAWuGOEbO47Laz-L56faNiZ2sg32zz2oIr_j0kv-vjfxfacidKtzDkNsTeiK2525Mom-mNGWo7z6zeEPwjWYSRStkCNa9kfdy?key=rpyGZ_9kGx4duDE76p7lHQ",
+            describe: "Động cơ Biturbo-V12 6.0L chế tạo thủ công, cho công suất là 621 mã lực và mô-men xoắn là 738 lb-ft"
 
         },
-        {
-            id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
-
-        },
-        {
-            id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
-
-        },
-        {
-            id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
-
-        }
     ]
+
     return (
         <IonPage>
             <IonContent fullscreen >
@@ -98,14 +65,11 @@ const AssistantList: React.FC = () => {
                     </IonRow>
                     <div style={{ height: 'calc(100vh - 70px)', overflowY: 'auto' }}>
                         <IonCard className='m-0  p-3 rounded-bottom-0 rounded-top-5 pb-5'>
-                            <IonRow className='d-flex justify-content-center align-items-center'>
-                                <IonLabel className='text-pink fs-6 fw-bold'>Assistant HOT</IonLabel>
-                            </IonRow>
-                            <SwiperAssistant list={list} />
+
                             <IonRow className='d-flex justify-content-center align-items-center mt-5'>
-                                <IonLabel className='text-pink fs-6 fw-bold'>List Assistant</IonLabel>
+                                <IonLabel className='text-pink fs-6 fw-bold'>List Cars</IonLabel>
                             </IonRow>
-                            <SwiperAssistant list={list} />
+                            <SwiperCar list={list} />
                             <IonRow className='d-flex justify-content-between align-items-center mt-4'>
                                 <IonLabel className='text-dark fs-6 fw-bold'>Lịch sử</IonLabel>
                                 <div className='text-pink fs-13'>See all</div>
@@ -151,7 +115,7 @@ const AssistantList: React.FC = () => {
 
             </IonContent>
         </IonPage>
-    );
-};
+    )
+}
 
-export default AssistantList;
+export default CarList

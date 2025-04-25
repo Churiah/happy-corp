@@ -10,12 +10,12 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { ellipse, square, star, triangle } from 'ionicons/icons';
 import Home from './pages/Home';
 import AssistantList from './pages/AssistantList';
 import YachtList from './pages/YachtList';
 import YachtBooking from './pages/YachtBooking';
-
+import CarList from './pages/CarList';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -54,7 +54,6 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-
           <Route path="/home">
             <Home />
           </Route>
@@ -69,6 +68,9 @@ const App: React.FC = () => (
           </Route>
           <Route path="/room-concept">
             <RoomConcept />
+          </Route>
+          <Route path="/car-list">
+            <CarList />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />
@@ -86,6 +88,10 @@ const App: React.FC = () => (
           <IonTabButton tab="tab3" href="/yacht-list">
             <IonIcon aria-hidden="true" icon={square} />
             <IonLabel>yacht</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab4" href="/car-list">
+            <IonIcon aria-hidden="true" icon={star} />
+            <IonLabel>car</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

@@ -131,8 +131,8 @@ const Home: React.FC = () => {
                         </IonRow>
                         <div className="calendar-wrapper mt-2">
                             <Calendar
-                                onChange={() => { setValue }}
-                                value={value}
+                                // onChange={() => { setValue() }}
+                                // value={value}
                                 tileContent={({ date, view }) => {
                                     const key = formatDateKey(date);
                                     if (view === 'month' && notes[key]?.type == "3") {
