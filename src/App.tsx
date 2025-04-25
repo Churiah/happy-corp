@@ -46,6 +46,9 @@ import '@ionic/react/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 import RoomConcept from './pages/RoomConcept';
+import RoomConceptBooking from './pages/RoomConceptBooking';
+import AssistantBooking from './pages/AssistantBooking';
+import MenuList from './pages/MenuList';
 
 setupIonicReact();
 
@@ -69,6 +72,15 @@ const App: React.FC = () => (
           <Route path="/room-concept">
             <RoomConcept />
           </Route>
+          <Route path="/room-concept-booking">
+            <RoomConceptBooking />
+          </Route>
+          <Route path="/assistant-booking">
+            <AssistantBooking />
+          </Route>
+          <Route path="/menu-list">
+            <MenuList />
+          </Route>
           <Route path="/car-list">
             <CarList />
           </Route>
@@ -88,6 +100,10 @@ const App: React.FC = () => (
           <IonTabButton tab="tab3" href="/yacht-list">
             <IonIcon aria-hidden="true" icon={square} />
             <IonLabel>yacht</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab4" href="/room-concept">
+            <IonIcon aria-hidden="true" icon={square} />
+            <IonLabel>room</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab4" href="/car-list">
             <IonIcon aria-hidden="true" icon={star} />

@@ -94,17 +94,20 @@ const Home: React.FC = () => {
                             <IonCol size='8' >
                                 <div style={{ position: 'relative' }}>
                                     <img src='https://intranphat.com/uploads/services/anh-bia-13.png' className='rounded-4'></img>
-                                    <IonCard className='m-0 bg-dark bg-opacity-50 text-dark p-2 pb-3 rounded-4' style={{
-                                        position: 'absolute',
-                                        bottom: '10px',
-                                        left: '6px',
-                                        right: '6px',
-                                    }}>
-                                        <IonRow className='d-flex justify-content-between align-items-center text-white'>
-                                            <IonLabel className='fw-bold'>Chọn menu</IonLabel>
-                                            <IonIcon icon={arrowRedoOutline} color='white'></IonIcon>
-                                        </IonRow>
-                                    </IonCard>
+                                    <Link to="/menu-list">
+                                        <IonCard className='m-0 bg-dark bg-opacity-50 text-dark p-2 pb-3 rounded-4' style={{
+                                            position: 'absolute',
+                                            bottom: '10px',
+                                            left: '6px',
+                                            right: '6px',
+                                        }}>
+                                            <IonRow className='d-flex justify-content-between align-items-center text-white'>
+                                                <IonLabel className='fw-bold'>Chọn menu</IonLabel>
+                                                <IonIcon icon={arrowRedoOutline} color='white'></IonIcon>
+                                            </IonRow>
+                                        </IonCard>
+                                    </Link>
+
                                 </div>
                             </IonCol>
                             <IonCol size='8'>

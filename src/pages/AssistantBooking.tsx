@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonCol, IonContent, IonFooter, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonModal, IonPage, IonRow, IonSearchbar, IonSelect, IonSelectOption, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCol, IonContent, IonFooter, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonModal, IonPage, IonRow, IonSearchbar, IonSelect, IonSelectOption, IonTitle, IonToolbar } from '@ionic/react';
 import './page.css';
 import { add, arrowBack, arrowForwardCircleOutline, arrowRedoOutline, key, locateOutline, locationSharp, remove, searchOutline, sparklesSharp, trashOutline } from 'ionicons/icons';
 import Calendar from 'react-calendar';
@@ -16,14 +16,14 @@ type MenuItem = {
     image: string;
     quantity: number;
 };
-type AssistantItem = {
+type conceptItem = {
     id: number;
     name: string;
-    describe: string;
-    avatar: string;
+    content: string;
+    image: string;
 };
 
-const YachtBooking: React.FC = () => {
+const AssistantBooking: React.FC = () => {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [isOpenAssistant, setIsOpenAssistant] = useState(false);
     const history = useHistory();
@@ -80,62 +80,62 @@ const YachtBooking: React.FC = () => {
         }
     ]
 
-    const assistant = [
+    const concept = [
         {
             id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí với 3 năm kinh nghiệp"
-
+            type: 1,
+            name: "Phòng với phong cách cổ tích",
+            content: "Màu tường nhẹ nhàng, mềm mại để tăng sự thông thoáng và thoải mái cho phòng ngủ. Ngoài ra, nên đặt một cửa sổ lớn hoặc một lớp kính ngay cạnh giường, chỉ cần mở cửa sổ để căn phòng rộng rãi hơn.",
+            price: "10000000",
+            image: "https://decoxdesign.com/upload/images/merose-villa-1300m2-phong-ngu-05-decox-design.jpg"
         },
         {
-            id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
-
+            id: 2,
+            type: 2,
+            name: "Phòng với phong cách nhẹ nhàng lãng mạng",
+            content: "Màu tường nhẹ nhàng, mềm mại để tăng sự thông thoáng và thoải mái cho phòng ngủ. Ngoài ra, nên đặt một cửa sổ lớn hoặc một lớp kính ngay cạnh giường, chỉ cần mở cửa sổ để căn phòng rộng rãi hơn.",
+            price: "10000000",
+            image: "https://decoxdesign.com/upload/images/merose-villa-1300m2-phong-ngu-05-decox-design.jpg"
         },
         {
-            id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí với 3 năm kinh nghiệp"
-
+            id: 3,
+            type: 1,
+            name: "Phòng với phong cách cổ tích gsf",
+            content: "Màu tường nhẹ nhàng, mềm mại để tăng sự thông thoáng và thoải mái cho phòng ngủ. Ngoài ra, nên đặt một cửa sổ lớn hoặc một lớp kính ngay cạnh giường, chỉ cần mở cửa sổ để căn phòng rộng rãi hơn.",
+            price: "10000000",
+            image: "https://decoxdesign.com/upload/images/merose-villa-1300m2-phong-ngu-05-decox-design.jpg"
         },
         {
-            id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
-
+            id: 4,
+            type: 1,
+            name: "Phòng với phong cách cổ tích djkfhsdlikjfl",
+            content: "Màu tường nhẹ nhàng, mềm mại để tăng sự thông thoáng và thoải mái cho phòng ngủ. Ngoài ra, nên đặt một cửa sổ lớn hoặc một lớp kính ngay cạnh giường, chỉ cần mở cửa sổ để căn phòng rộng rãi hơn.",
+            price: "10000000",
+            image: "https://decoxdesign.com/upload/images/merose-villa-1300m2-phong-ngu-05-decox-design.jpg"
         },
         {
-            id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
-
+            id: 5,
+            type: 2,
+            name: "Phòng với phong cách cổ tích dhsff",
+            content: "Màu tường nhẹ nhàng, mềm mại để tăng sự thông thoáng và thoải mái cho phòng ngủ. Ngoài ra, nên đặt một cửa sổ lớn hoặc một lớp kính ngay cạnh giường, chỉ cần mở cửa sổ để căn phòng rộng rãi hơn.",
+            price: "10000000",
+            image: "https://decoxdesign.com/upload/images/merose-villa-1300m2-phong-ngu-05-decox-design.jpg"
         },
         {
-            id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
-
+            id: 6,
+            type: 3,
+            name: "Phòng với phong cách đơn giản 623578",
+            content: "Màu tường nhẹ nhàng, mềm mại để tăng sự thông thoáng và thoải mái cho phòng ngủ. Ngoài ra, nên đặt một cửa sổ lớn hoặc một lớp kính ngay cạnh giường, chỉ cần mở cửa sổ để căn phòng rộng rãi hơn.",
+            price: "10000000",
+            image: "https://decoxdesign.com/upload/images/merose-villa-1300m2-phong-ngu-05-decox-design.jpg"
         },
         {
-            id: 1,
-            name: "Trợ lí Marry",
-            age: 25,
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO27yfAZmM1Xu4sR2tixZ8Moq-rOxlbKDXg&s",
-            describe: "Là một cô trợ lí siêu dễ thương, có 3 năm kinh nghiệm"
-
+            id: 7,
+            type: 3,
+            name: "Phòng với phong cách đơn giản",
+            content: "Màu tường nhẹ nhàng, mềm mại để tăng sự thông thoáng và thoải mái cho phòng ngủ. Ngoài ra, nên đặt một cửa sổ lớn hoặc một lớp kính ngay cạnh giường, chỉ cần mở cửa sổ để căn phòng rộng rãi hơn.",
+            price: "10000000",
+            image: "https://decoxdesign.com/upload/images/merose-villa-1300m2-phong-ngu-05-decox-design.jpg"
         }
     ]
 
@@ -201,24 +201,24 @@ const YachtBooking: React.FC = () => {
 
     }
 
+    const [selectconcept, setSelectconcept] = useState<conceptItem[]>([]);
 
-    const [selectAssistant, setSelectAssistant] = useState<AssistantItem[]>([]);
-
-    const handleSelectAssistant = (assistant: AssistantItem) => {
-        setSelectAssistant(prev => {
-            const exists = prev.some(item => item.id === assistant.id);
+    const handleSelectconcept = (concept: conceptItem) => {
+        setSelectconcept(prev => {
+            const exists = prev.some(item => item.id === concept.id);
             let updated;
 
             if (exists) {
-                updated = prev.filter(item => item.id !== assistant.id);
+                updated = prev.filter(item => item.id !== concept.id);
             } else {
-                updated = [...prev, assistant];
+                updated = [...prev, concept];
             }
 
-            localStorage.setItem("selectAssistant", JSON.stringify(updated));
+            localStorage.setItem("selectconcept", JSON.stringify(updated));
             return updated;
         });
     };
+
 
     return (
         <IonPage>
@@ -229,7 +229,7 @@ const YachtBooking: React.FC = () => {
                             <button className='text-center rounded-circle text-white me-2' style={{ width: "40px", height: "40px", backgroundColor: "#ff6600" }} onClick={() => history.goBack()}>
                                 <IonIcon icon={arrowBack} style={{ fontSize: "22px" }} />
                             </button>
-                            <div className='text-white fw-bold ' style={{ fontSize: "17px" }}>Yacht Booking</div>
+                            <div className='text-white fw-bold ' style={{ fontSize: "17px" }}>Assistant Booking</div>
                         </IonCol>
                         <IonCol size='2' className='text-end'>
                             <img src='https://beta.ellm.io/templates/assets/img/logo-small.svg' alt='logo' style={{ width: "40px" }}></img>
@@ -238,31 +238,32 @@ const YachtBooking: React.FC = () => {
                     <div style={{ height: 'calc(100vh - 70px)', overflowY: 'auto' }} >
                         <IonCard className='m-0  p-3 pb-5 rounded-bottom-0 rounded-top-5 shadow-none'>
                             <IonRow className='d-flex justify-content-center align-items-center'>
-                                <IonLabel className='text-pink fs-6 fw-bold'>Du thuyền A123</IonLabel>
+
+                                <IonLabel className='text-pink fs-6 fw-bold'>Trợ lí Mary</IonLabel>
                             </IonRow>
-                            <IonRow className='mt-3'>
-                                <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="true">
+                            <IonRow className='mt-3 px-4'>
+                                <div id="slideRoomConceptBooking" className="carousel slide" data-bs-ride="true">
                                     <div className="carousel-indicators">
-                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                        <button type="button" data-bs-target="#slideRoomConceptBooking" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#slideRoomConceptBooking" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#slideRoomConceptBooking" data-bs-slide-to="2" aria-label="Slide 3"></button>
                                     </div>
                                     <div className="carousel-inner">
                                         <div className="carousel-item active">
-                                            <img src='https://danviet.mediacdn.vn/upload/3-2019/images/2019-07-16/Chiem-nguong-sieu-du-thuyen-400-trieu-do-cua-ty-phu-giau-nhat-the-gioi-syiq_82913-1563250315-width800height456.jpg' className='w-100 rounded-4'></img>
+                                            <img src='https://image.sggp.org.vn/w1000/Uploaded/2025/ctzdxljwq/2021_04_14/noi-dung-3_cuil.jpg.webp' className='w-100 rounded-4'></img>
                                         </div>
                                         <div className="carousel-item">
-                                            <img src='https://danviet.mediacdn.vn/upload/3-2019/images/2019-07-16/Chiem-nguong-sieu-du-thuyen-400-trieu-do-cua-ty-phu-giau-nhat-the-gioi-syiq_82913-1563250315-width800height456.jpg' className='w-100 rounded-4'></img>
+                                            <img src='https://image.sggp.org.vn/w1000/Uploaded/2025/ctzdxljwq/2021_04_14/noi-dung-3_cuil.jpg.webp' className='w-100 rounded-4'></img>
                                         </div>
                                         <div className="carousel-item">
-                                            <img src='https://danviet.mediacdn.vn/upload/3-2019/images/2019-07-16/Chiem-nguong-sieu-du-thuyen-400-trieu-do-cua-ty-phu-giau-nhat-the-gioi-syiq_82913-1563250315-width800height456.jpg' className='w-100 rounded-4'></img>
+                                            <img src='https://image.sggp.org.vn/w1000/Uploaded/2025/ctzdxljwq/2021_04_14/noi-dung-3_cuil.jpg.webp' className='w-100 rounded-4'></img>
                                         </div>
                                     </div>
-                                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                    <button className="carousel-control-prev" type="button" data-bs-target="#slideRoomConceptBooking" data-bs-slide="prev">
                                         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span className="visually-hidden">Previous</span>
                                     </button>
-                                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                    <button className="carousel-control-next" type="button" data-bs-target="#slideRoomConceptBooking" data-bs-slide="next">
                                         <span className="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span className="visually-hidden">Next</span>
                                     </button>
@@ -272,19 +273,29 @@ const YachtBooking: React.FC = () => {
                             <IonList className='p-0 px-3'>
                                 <IonRow className='d-flex align-items-center mt-3 text-dark fs-15' >
                                     <IonIcon className='me-2 text-pink' icon={locationSharp} style={{ width: "20px", height: "20px" }}></IonIcon>
-                                    Bến Bạch Đằng, Quận 1
+                                    Phòng với phong cách cổ tích
                                 </IonRow>
-                                <IonRow className='d-flex align-items-center mt-2 text-dark fs-15' >
+                                <IonRow className='d-flex align-items-center mt-2 text-dark fs-13' >
                                     <IonIcon className='me-2 text-pink' icon={sparklesSharp} style={{ width: "20px", height: "20px" }}></IonIcon>
-                                    Du thuyện hạn sang với không gian cổ tích
+                                    Màu tường nhẹ nhàng, mềm mại để tăng sự thông thoáng và thoải mái cho phòng ngủ. Ngoài ra, nên đặt một cửa sổ lớn hoặc một lớp kính ngay cạnh giường, chỉ cần mở cửa sổ để căn phòng rộng rãi hơn.
                                 </IonRow>
                                 <IonRow className='text-pink fs-13 fw-bold mt-3'>Địa điểm <span className='text-danger ms-1'>(*)</span></IonRow>
                                 <IonRow className='mt-1'>
                                     <input type='text' className='p-2 rounded-3 fs-13 border border-1 w-100' placeholder='Nhập địa điểm'></input>
                                 </IonRow>
-                                <IonRow className='text-pink fs-13 fw-bold mt-3'>Thời gian <span className='text-danger ms-1'>(*)</span></IonRow>
-                                <IonRow className='mt-1'>
-                                    <input type='datetime-local' className='p-2 rounded-3 fs-13 border border-1 w-100'></input>
+                                <IonRow className='d-flex align-items-center'>
+                                    <IonCol size='6' className='ps-0'>
+                                        <IonRow className='text-pink fs-13 fw-bold mt-3'>Thời gian checkin <span className='text-danger ms-1'>(*)</span></IonRow>
+                                        <IonRow className='mt-1'>
+                                            <input type='datetime-local' className='p-2 rounded-3 fs-13 border border-1 w-100'></input>
+                                        </IonRow>
+                                    </IonCol>
+                                    <IonCol size='6' className='pe-0'>
+                                        <IonRow className='text-pink fs-13 fw-bold mt-3'>Thời gian checkout <span className='text-danger ms-1'>(*)</span></IonRow>
+                                        <IonRow className='mt-1'>
+                                            <input type='datetime-local' className='p-2 rounded-3 fs-13 border border-1 w-100'></input>
+                                        </IonRow>
+                                    </IonCol>
                                 </IonRow>
                                 <IonRow className='text-pink fs-13 fw-bold mt-3'>Họ và tên <span className='text-danger ms-1'>(*)</span></IonRow>
                                 <IonRow className='mt-1'>
@@ -324,19 +335,20 @@ const YachtBooking: React.FC = () => {
                                     </IonRow>
                                 }
                                 <IonRow className='d-flex justify-content-between align-items-center mt-3'>
-                                    <div className='text-pink fs-13 fw-bold'>Chọn Trợ lí</div>
-                                    <button className='book-btn fs-13 p-2' onClick={() => setIsOpenAssistant(true)}>Chọn</button>
+                                    <div className='text-pink fs-13 fw-bold'>Chọn Concert phòng</div>
+                                    <button className='book-btn fs-13 p-2' onClick={() => { setIsOpenAssistant(true); }}>Chọn</button>
                                 </IonRow>
-                                {selectAssistant && selectAssistant.length > 0 ? selectAssistant.map((assistant, key) => {
+
+                                {selectconcept && selectconcept.length > 0 ? selectconcept.map((concept, key) => {
                                     return (
                                         <>
                                             <IonRow className='border-bottom mt-2' key={key}>
                                                 <IonCol size='2'>
-                                                    <img src={`${assistant.avatar}`} className='rounded-3'></img>
+                                                    <img src={`${concept.image}`} className='rounded-3'></img>
                                                 </IonCol>
                                                 <IonCol size='10'>
-                                                    <div className='text-pink fs-13'>{assistant.name}</div>
-                                                    <div className='text-secondary ' style={{ fontSize: "12px" }}>{assistant.describe}</div>
+                                                    <div className='text-pink fs-13'>{concept.name}</div>
+                                                    <div className='text-secondary ' style={{ fontSize: "12px" }}>{concept.content}</div>
 
                                                 </IonCol>
                                             </IonRow>
@@ -448,7 +460,7 @@ const YachtBooking: React.FC = () => {
             >
                 <IonHeader>
                     <IonToolbar>
-                        <IonTitle className='fs-15'>Chọn trợ lí</IonTitle>
+                        <IonTitle className='fs-15'>Chọn Concept phòng</IonTitle>
                         <IonButtons slot="end">
                             <IonButton onClick={() => { setIsOpenAssistant(false); }} className='fs-13'>Close</IonButton>
                         </IonButtons>
@@ -460,15 +472,15 @@ const YachtBooking: React.FC = () => {
                     </IonRow>
 
                     <IonRow className='mt-3'>
-                        {assistant && assistant.map((assistant, key) => {
-                            const isSelected = selectAssistant.some(item => item.id === assistant.id);
+                        {concept && concept.map((concept, key) => {
+                            const isSelected = selectconcept.some(item => item.id === concept.id);
                             return (
                                 <IonCol size='6' key={key}>
                                     <IonCard className='m-0 p-3 rounded-3'>
-                                        <img src={`${assistant.avatar}`} className='rounded-3'></img>
-                                        <div className='text-pink fw-bold fs-13 text-center my-2'>{assistant.name}</div>
-                                        <div className='text-secondary three-line-block' style={{ fontSize: "12px" }}>{assistant.describe}</div>
-                                        <div className='d-flex justify-content-center mt-2' onClick={() => { handleSelectAssistant(assistant) }}>
+                                        <img src={`${concept.image}`} className='rounded-3'></img>
+                                        <div className='text-pink fw-bold fs-13 text-center my-2'>{concept.name}</div>
+                                        <div className='text-secondary three-line-block' style={{ fontSize: "12px" }}>{concept.content}</div>
+                                        <div className='d-flex justify-content-center mt-2' onClick={() => { handleSelectconcept(concept) }}>
                                             <button className={` fs-13 p-2 w-75 ${isSelected ? 'bg-light p-2 text-black rounded-pill' : 'book-btn'}`} >{isSelected ? 'Đã chọn' : 'Chọn ngay'}</button>
                                         </div>
                                     </IonCard>
@@ -491,4 +503,4 @@ const YachtBooking: React.FC = () => {
     );
 };
 
-export default YachtBooking;
+export default AssistantBooking;

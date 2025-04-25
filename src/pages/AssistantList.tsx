@@ -87,6 +87,10 @@ const AssistantList: React.FC = () => {
 
         }
     ]
+
+    function Booking() {
+
+    }
     return (
         <IonPage>
             <IonContent fullscreen >
