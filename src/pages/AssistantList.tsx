@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import { EffectCards } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 
 const AssistantList: React.FC = () => {
@@ -86,6 +87,10 @@ const AssistantList: React.FC = () => {
 
         }
     ]
+
+    function Booking() {
+
+    }
     return (
         <IonPage>
             <IonContent fullscreen >
@@ -119,7 +124,9 @@ const AssistantList: React.FC = () => {
                                                 <span className="busy">Busy</span>
                                                 <div className="circle pink" />
                                             </div>
-                                            <button className="book-btn">BOOK ME NOW</button>
+                                            <Link to="/assistant-booking">
+                                                <button className="book-btn">BOOK ME NOW</button>
+                                            </Link>
                                         </div>
                                     </SwiperSlide>
                                 ))}
@@ -148,7 +155,9 @@ const AssistantList: React.FC = () => {
                                                 <span className="busy">Busy</span>
                                                 <div className="circle pink" />
                                             </div>
-                                            <button className="book-btn">BOOK ME NOW</button>
+                                            <Link to="/assistant-booking">
+                                                <button className="book-btn">BOOK ME NOW</button>
+                                            </Link>
                                         </div>
                                     </SwiperSlide>
                                 ))}

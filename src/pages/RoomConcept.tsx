@@ -1,12 +1,13 @@
 import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import './page.css';
-import { arrowForwardCircleOutline, arrowRedoOutline, searchOutline } from 'ionicons/icons';
+import { arrowForwardCircleOutline, arrowRedoOutline, key, searchOutline } from 'ionicons/icons';
 import Calendar from 'react-calendar';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import { EffectCards } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 
 const RoomConcept: React.FC = () => {
@@ -87,7 +88,7 @@ const RoomConcept: React.FC = () => {
                             <IonRow className='d-flex align-items-center'>
                                 {concept.filter((concept) => concept.type === 1).map((concept, index) => (
                                     <>
-                                        <IonCol size='6'>
+                                        <IonCol size='6' key={key}>
                                             <IonCard className=' shadow-none m-0 p-1 border border-1'>
                                                 <img src={`${concept.image}`} className='w-100 rounded-3'></img>
                                                 <div className='fs-13 text-pink fw-bold mt-2'>{concept.name}</div>
@@ -95,7 +96,9 @@ const RoomConcept: React.FC = () => {
 
                                                 <div className='d-flex justify-content-between align-items-center mt-2'>
                                                     <div className='fs-11 text-danger text-end '>{concept.price} VNĐ</div>
-                                                    <button className='book-btn fs-11 p-2'>Book ngay</button>
+                                                    <Link to="/room-concept-booking">
+                                                        <button className='book-btn fs-11 p-2'>Book ngay</button>
+                                                    </Link>
                                                 </div>
                                             </IonCard>
                                         </IonCol>
